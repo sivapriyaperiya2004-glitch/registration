@@ -54,7 +54,8 @@ class Welcome extends StatelessWidget {
                       context,
                       MaterialPageRoute(builder: (context) => Signupscreen()),
                     );
-                  },style: ElevatedButton.styleFrom(backgroundColor: Colors.blue,),
+                  },
+                  style: ElevatedButton.styleFrom(backgroundColor: Colors.blue),
                   child: Text(
                     "SIGNUP",
                     style: TextStyle(

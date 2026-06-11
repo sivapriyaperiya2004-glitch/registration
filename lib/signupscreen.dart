@@ -6,6 +6,10 @@ class Signupscreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    TextEditingController emailc = TextEditingController();
+    TextEditingController passc = TextEditingController();
+    TextEditingController confpassc = TextEditingController();
+    TextEditingController usercc = TextEditingController();
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -31,7 +35,7 @@ class Signupscreen extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 4),
-              TextField(
+              TextField(controller: usercc,
                 decoration: InputDecoration(
                   labelText: "Username",
                   border: OutlineInputBorder(
@@ -40,7 +44,7 @@ class Signupscreen extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 20),
-              TextField(
+              TextField(controller: emailc,
                 decoration: InputDecoration(
                   labelText: "Email",
                   border: OutlineInputBorder(
@@ -49,7 +53,7 @@ class Signupscreen extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 20),
-              TextField(
+              TextField(controller: passc,
                 decoration: InputDecoration(
                   labelText: "Pasword",
                   border: OutlineInputBorder(
@@ -58,7 +62,7 @@ class Signupscreen extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 20),
-              TextField(
+              TextField(controller: confpassc,
                 decoration: InputDecoration(
                   labelText: "Confirm password",
                   border: OutlineInputBorder(

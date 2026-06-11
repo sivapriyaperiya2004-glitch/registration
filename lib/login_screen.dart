@@ -8,6 +8,8 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    TextEditingController emailc = TextEditingController();
+    TextEditingController passc = TextEditingController();
     return Scaffold(
       body: Center(
         child: Padding(
@@ -35,6 +37,7 @@ class LoginScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 20),
                 TextField(
+                  controller: emailc,
                   decoration: InputDecoration(
                     labelText: "Email",
                     border: OutlineInputBorder(
@@ -44,6 +47,7 @@ class LoginScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 20),
                 TextField(
+                  controller: passc,
                   decoration: InputDecoration(
                     labelText: "Password",
                     border: OutlineInputBorder(
