@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:registration/login_screen.dart';
+import 'package:registration/service.dart';
 
 class Forgotpassword extends StatelessWidget {
   Forgotpassword({super.key});
@@ -14,7 +15,7 @@ class Forgotpassword extends StatelessWidget {
         key: formkey,
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.only(left: 200, right: 200),
+            padding: const EdgeInsets.only(left: 20, right: 20),
             child: Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -39,6 +40,7 @@ class Forgotpassword extends StatelessWidget {
                     ),
                   ),
                   TextFormField(
+                    controller: emailc,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return "Email is required";
@@ -59,7 +61,9 @@ class Forgotpassword extends StatelessWidget {
                   ),
                   SizedBox(height: 20),
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Forgot(emailc.text, context);
+                    },
                     child: Text("Recovery Link"),
                   ),
                   GestureDetector(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:registration/login_screen.dart';
+import 'package:registration/service.dart';
 
 class Signupscreen extends StatelessWidget {
   Signupscreen({super.key});
@@ -114,7 +115,7 @@ class Signupscreen extends StatelessWidget {
                   child: ElevatedButton(
                     onPressed: () {
                       if (formkey.currentState!.validate()) {
-                        print("Signup");
+                        register(usercc.text, emailc.text, passc.text, context);
                       }
                     },
                     style: ElevatedButton.styleFrom(
