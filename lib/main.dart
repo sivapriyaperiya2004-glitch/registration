@@ -6,6 +6,6 @@ import 'package:registration/welcome.dart';
 
 void main() {
   runApp(
-    MaterialApp(debugShowCheckedModeBanner: false, home: Forgotpassword()),
+    MaterialApp(debugShowCheckedModeBanner: false, home: Welcome()),
   );
 }
