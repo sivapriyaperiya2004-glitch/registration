@@ -4,12 +4,21 @@ import 'package:registration/forgotpassword.dart';
 import 'package:registration/service.dart';
 import 'package:registration/signupscreen.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   LoginScreen({super.key});
+
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
   TextEditingController emailc = TextEditingController();
+
   TextEditingController passc = TextEditingController();
+
   final formkey = GlobalKey<FormState>();
 
+  bool isvisible = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,6 +69,7 @@ class LoginScreen extends StatelessWidget {
                   ),
                   SizedBox(height: 20),
                   TextFormField(
+                    obscureText: isvisible,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return "Password is required";
@@ -70,6 +80,18 @@ class LoginScreen extends StatelessWidget {
                     },
                     controller: passc,
                     decoration: InputDecoration(
+                      suffixIcon: IconButton(
+                        onPressed: () {
+                          setState(() {
+                            isvisible = !isvisible;
+                          });
+                        },
+                        icon: isvisible
+                        ?Icon(Icons.visibility_off)
+                        :Icon(Icons.visibility),
+
+
+                      ),
                       labelText: "Password",
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),

@@ -2,13 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:registration/login_screen.dart';
 import 'package:registration/service.dart';
 
-class Signupscreen extends StatelessWidget {
+class Signupscreen extends StatefulWidget {
   Signupscreen({super.key});
+
+  @override
+  State<Signupscreen> createState() => _SignupscreenState();
+}
+
+class _SignupscreenState extends State<Signupscreen> {
   TextEditingController emailc = TextEditingController();
+
   TextEditingController passc = TextEditingController();
+
   TextEditingController confpassc = TextEditingController();
+
   TextEditingController usercc = TextEditingController();
+
   final formkey = GlobalKey<FormState>();
+  bool visible = true;
+  bool confvisible = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -74,6 +86,7 @@ class Signupscreen extends StatelessWidget {
                 ),
                 SizedBox(height: 20),
                 TextFormField(
+                  obscureText: visible,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return "Password is required";
@@ -84,6 +97,16 @@ class Signupscreen extends StatelessWidget {
                   },
                   controller: passc,
                   decoration: InputDecoration(
+                    suffixIcon: IconButton(
+                      onPressed: () {
+                        setState(() {
+                          visible = !visible;
+                        });
+                      },
+                      icon: visible
+                          ? Icon(Icons.visibility)
+                          : Icon(Icons.visibility),
+                    ),
                     labelText: "Pasword",
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
@@ -91,7 +114,7 @@ class Signupscreen extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 20),
-                TextFormField(
+                TextFormField(obscureText: confvisible,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return "Enter the password";
@@ -102,6 +125,11 @@ class Signupscreen extends StatelessWidget {
                   },
                   controller: confpassc,
                   decoration: InputDecoration(
+                    suffixIcon: IconButton(onPressed: (){
+                      setState(() {
+                        confvisible=!confvisible;
+                      });
+                    }, icon: confvisible?Icon(Icons.visibility_off):Icon(Icons.visibility)),
                     labelText: "Confirm password",
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
